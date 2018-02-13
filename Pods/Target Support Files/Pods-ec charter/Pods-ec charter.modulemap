@@ -1,0 +1,6 @@
+framework module Pods_ec_charter {
+  umbrella header "Pods-ec charter-umbrella.h"
+
+  export *
+  module * { export * }
+}

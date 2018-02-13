@@ -11,12 +11,23 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // Joses-Mac:ec charter joseduin$ open -a Xcode Podfile
+    // Joses-Mac:ec charter joseduin$ pod install
+    
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        UINavigationBar.appearance().barTintColor = UIColor(red:18/255.0, green: 106/255.0, blue: 170/255.0, alpha: 1)
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         return true
+    }
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

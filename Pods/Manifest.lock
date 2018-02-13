@@ -1,0 +1,23 @@
+PODS:
+  - CryptoSwift (0.8.1)
+  - SQLite.swift (0.11.4):
+    - SQLite.swift/standard (= 0.11.4)
+  - SQLite.swift/standard (0.11.4)
+  - Toast-Swift (3.0.1)
+  - UIDropDown (1.1.1)
+
+DEPENDENCIES:
+  - CryptoSwift
+  - SQLite.swift (~> 0.11.4)
+  - Toast-Swift (~> 3.0.1)
+  - UIDropDown
+
+SPEC CHECKSUMS:
+  CryptoSwift: 4b07d5b508c1eb67bfa314a727b705f8048a85de
+  SQLite.swift: 3e3bee21da701b5b9f87c4a672cb54f233505692
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
+  UIDropDown: 22e6e3e22d419884c8f21d95ea9be36aac905ed4
+
+PODFILE CHECKSUM: 7cbc658fd96e58a7c1c0f783b659e0cfabd63a74
+
+COCOAPODS: 1.4.0
