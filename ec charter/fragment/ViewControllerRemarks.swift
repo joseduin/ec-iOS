@@ -10,18 +10,21 @@ import UIKit
 import MessageUI
 import Toast_Swift
 
-class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelegate {
+class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelegate, UITextViewDelegate {
     
     var reportPass: Report = Report()
     let bd: BaseDatos = BaseDatos()
     let email: Email = Email()
 
     @IBOutlet weak var remarks: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Remarks"
 
         // Do any additional setup after loading the view.
+        self.remarks.delegate = self
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,6 +38,25 @@ class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelega
     
     func changedRemarks() {
         // falta
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn  range: NSRange, replacementText text: String) -> Bool {
+        if textView == self.remarks {
+            print(text)
+            if (text == "\n") {
+                textView.resignFirstResponder()
+                performAction()
+            }
+        }
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        <#code#>
+    }
+    
+    func performAction() {
+        
     }
     
     func loadReport() {
@@ -78,6 +100,20 @@ class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelega
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
+    }
+    
+    // https://stackoverflow.com/questions/37574689/how-to-load-image-from-local-path-ios-swift-by-path
+    private func load(fileName: String) -> UIImage? {
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let photoURL          = NSURL(fileURLWithPath: documentDirectory)
+        let fileURL = photoURL.appendingPathComponent(fileName)
+        do {
+            let imageData = try Data(contentsOf: fileURL!)
+            return UIImage(data: imageData)
+        } catch {
+            print("Error loading image : \(error)")
+        }
+        return nil
     }
     
     /*
