@@ -41,6 +41,7 @@
 		F0E5ED64202E3FE900395A38 /* ConstantesBaseDatos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E5ED63202E3FE900395A38 /* ConstantesBaseDatos.swift */; };
 		F0E5ED66202E47FF00395A38 /* BaseDatos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E5ED65202E47FF00395A38 /* BaseDatos.swift */; };
 		F0E5ED68202E86B900395A38 /* Lista.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E5ED67202E86B900395A38 /* Lista.swift */; };
+		F0F306A62033AE0A000734F4 /* ViewControllerFlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F306A52033AE0A000734F4 /* ViewControllerFlight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		F0E5ED63202E3FE900395A38 /* ConstantesBaseDatos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantesBaseDatos.swift; sourceTree = "<group>"; };
 		F0E5ED65202E47FF00395A38 /* BaseDatos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDatos.swift; sourceTree = "<group>"; };
 		F0E5ED67202E86B900395A38 /* Lista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lista.swift; sourceTree = "<group>"; };
+		F0F306A52033AE0A000734F4 /* ViewControllerFlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFlight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 			children = (
 				F00358F22027D76800C900BA /* ViewControllerBasic.swift */,
 				F0E4AB012032A55300028BF9 /* ViewControllerRemarks.swift */,
+				F0F306A52033AE0A000734F4 /* ViewControllerFlight.swift */,
 			);
 			path = fragment;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				F06AE5A9202605610009DEF8 /* CardHistory.swift in Sources */,
 				F05F3F6B202FBC4400FA7CE0 /* Hora.swift in Sources */,
 				F075FB352026AFCC0075A352 /* CardExpenses.swift in Sources */,
+				F0F306A62033AE0A000734F4 /* ViewControllerFlight.swift in Sources */,
 				F0E5ED64202E3FE900395A38 /* ConstantesBaseDatos.swift in Sources */,
 				F00358F32027D76800C900BA /* ViewControllerBasic.swift in Sources */,
 				F0E5ED66202E47FF00395A38 /* BaseDatos.swift in Sources */,
