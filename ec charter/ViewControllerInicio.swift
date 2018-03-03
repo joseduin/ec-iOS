@@ -21,6 +21,7 @@ class ViewControllerInicio: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Ec Charter"
+        //self.bd.dropTables()
         
         loadData()
     }
@@ -71,6 +72,8 @@ class ViewControllerInicio: UIViewController {
                 bd.reportInsert(report: report)
                 
                 self.reportPass = bd.ultimoBorrador()
+            } else {
+                self.reportPass = reports.last!
             }
         }
         self.performSegue(withIdentifier: "inicioToReport", sender: self)
@@ -87,10 +90,23 @@ class ViewControllerInicio: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "inicioToReport" {
             
-            if let viewController = segue.destination as? ViewControllerReport {
-                viewController.reportPass = self.reportPass
-            }
+            //if let viewController = segue.destination as? ViewControllerReport {
+            //    viewController.reportPass = self.reportPass
+           // }
             
+            let tabBarC : UITabBarController = segue.destination as! UITabBarController
+
+            let basic: ViewControllerBasic      = tabBarC.viewControllers![0] as! ViewControllerBasic
+            let flight: ViewControllerFlight    = tabBarC.viewControllers![1] as! ViewControllerFlight
+            let expense: ViewControllerExpenses = tabBarC.viewControllers![2] as! ViewControllerExpenses
+            let report: ViewControllerReports   = tabBarC.viewControllers![3] as! ViewControllerReports
+            let remarks: ViewControllerRemarks  = tabBarC.viewControllers![4] as! ViewControllerRemarks
+
+            basic.reportPassB   = self.reportPass
+            flight.reportPassF  = self.reportPass
+            expense.reportPassE = self.reportPass
+            report.reportPassRe = self.reportPass
+            remarks.reportPassR = self.reportPass
         }
     }
 

@@ -28,6 +28,8 @@
 		F034A78A20256EFA00FA2737 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F034A78820256EFA00FA2737 /* LaunchScreen.storyboard */; };
 		F034A79520256EFB00FA2737 /* ec_charterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F034A79420256EFB00FA2737 /* ec_charterTests.swift */; };
 		F034A7A020256EFB00FA2737 /* ec_charterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F034A79F20256EFB00FA2737 /* ec_charterUITests.swift */; };
+		F039A49F2049893600A3D821 /* ViewControllerExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F039A49E2049893600A3D821 /* ViewControllerExpenses.swift */; };
+		F039A4A32049899800A3D821 /* ViewControllerReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = F039A4A22049899700A3D821 /* ViewControllerReports.swift */; };
 		F039FE352030AD920091790C /* ViewControllerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F039FE342030AD920091790C /* ViewControllerHistory.swift */; };
 		F039FE38203112E80091790C /* UIDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F039FE39203112E80091790C /* UIDropDown.framework */; };
 		F05F3F6B202FBC4400FA7CE0 /* Hora.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F3F6A202FBC4400FA7CE0 /* Hora.swift */; };
@@ -36,12 +38,17 @@
 		F06AE5AD20260C630009DEF8 /* CardSettingsCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06AE5AC20260C630009DEF8 /* CardSettingsCombo.swift */; };
 		F075FB332026ACFA0075A352 /* CardAircraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = F075FB322026ACFA0075A352 /* CardAircraft.swift */; };
 		F075FB352026AFCC0075A352 /* CardExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F075FB342026AFCC0075A352 /* CardExpenses.swift */; };
+		F07C07DA203E6A1200D94D9D /* ViewControllerSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07C07D9203E6A1200D94D9D /* ViewControllerSetting.swift */; };
+		F07C07DC203E78E700D94D9D /* ViewControllerComboSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07C07DB203E78E700D94D9D /* ViewControllerComboSetting.swift */; };
 		F0E4AB022032A55300028BF9 /* ViewControllerRemarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E4AB012032A55300028BF9 /* ViewControllerRemarks.swift */; };
 		F0E4AB042032AB4400028BF9 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E4AB032032AB4400028BF9 /* Email.swift */; };
 		F0E5ED64202E3FE900395A38 /* ConstantesBaseDatos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E5ED63202E3FE900395A38 /* ConstantesBaseDatos.swift */; };
 		F0E5ED66202E47FF00395A38 /* BaseDatos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E5ED65202E47FF00395A38 /* BaseDatos.swift */; };
 		F0E5ED68202E86B900395A38 /* Lista.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E5ED67202E86B900395A38 /* Lista.swift */; };
 		F0F306A62033AE0A000734F4 /* ViewControllerFlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F306A52033AE0A000734F4 /* ViewControllerFlight.swift */; };
+		F0F4AD242049B35700EDA486 /* ReportCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4AD232049B35700EDA486 /* ReportCombo.swift */; };
+		F0F4AD262049B58E00EDA486 /* ReportComboCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4AD252049B58E00EDA486 /* ReportComboCell.swift */; };
+		F0F4AD282049BE0900EDA486 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4AD272049BE0900EDA486 /* Protocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +102,8 @@
 		F034A79B20256EFB00FA2737 /* ec charterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ec charterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F034A79F20256EFB00FA2737 /* ec_charterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ec_charterUITests.swift; sourceTree = "<group>"; };
 		F034A7A120256EFB00FA2737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F039A49E2049893600A3D821 /* ViewControllerExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExpenses.swift; sourceTree = "<group>"; };
+		F039A4A22049899700A3D821 /* ViewControllerReports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerReports.swift; sourceTree = "<group>"; };
 		F039FE342030AD920091790C /* ViewControllerHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHistory.swift; sourceTree = "<group>"; };
 		F039FE372030F0AB0091790C /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F039FE39203112E80091790C /* UIDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,12 +113,17 @@
 		F06AE5AC20260C630009DEF8 /* CardSettingsCombo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSettingsCombo.swift; sourceTree = "<group>"; };
 		F075FB322026ACFA0075A352 /* CardAircraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAircraft.swift; sourceTree = "<group>"; };
 		F075FB342026AFCC0075A352 /* CardExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExpenses.swift; sourceTree = "<group>"; };
+		F07C07D9203E6A1200D94D9D /* ViewControllerSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSetting.swift; sourceTree = "<group>"; };
+		F07C07DB203E78E700D94D9D /* ViewControllerComboSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerComboSetting.swift; sourceTree = "<group>"; };
 		F0E4AB012032A55300028BF9 /* ViewControllerRemarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRemarks.swift; sourceTree = "<group>"; };
 		F0E4AB032032AB4400028BF9 /* Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		F0E5ED63202E3FE900395A38 /* ConstantesBaseDatos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantesBaseDatos.swift; sourceTree = "<group>"; };
 		F0E5ED65202E47FF00395A38 /* BaseDatos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDatos.swift; sourceTree = "<group>"; };
 		F0E5ED67202E86B900395A38 /* Lista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lista.swift; sourceTree = "<group>"; };
 		F0F306A52033AE0A000734F4 /* ViewControllerFlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFlight.swift; sourceTree = "<group>"; };
+		F0F4AD232049B35700EDA486 /* ReportCombo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCombo.swift; sourceTree = "<group>"; };
+		F0F4AD252049B58E00EDA486 /* ReportComboCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportComboCell.swift; sourceTree = "<group>"; };
+		F0F4AD272049BE0900EDA486 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +204,7 @@
 				F00358E120279EA000C900BA /* Report.swift */,
 				F00358E32027A30F00C900BA /* Expenses.swift */,
 				F0E5ED67202E86B900395A38 /* Lista.swift */,
+				F0F4AD272049BE0900EDA486 /* Protocol.swift */,
 			);
 			path = modelo;
 			sourceTree = "<group>";
@@ -198,8 +213,10 @@
 			isa = PBXGroup;
 			children = (
 				F00358F22027D76800C900BA /* ViewControllerBasic.swift */,
-				F0E4AB012032A55300028BF9 /* ViewControllerRemarks.swift */,
 				F0F306A52033AE0A000734F4 /* ViewControllerFlight.swift */,
+				F039A49E2049893600A3D821 /* ViewControllerExpenses.swift */,
+				F039A4A22049899700A3D821 /* ViewControllerReports.swift */,
+				F0E4AB012032A55300028BF9 /* ViewControllerRemarks.swift */,
 			);
 			path = fragment;
 			sourceTree = "<group>";
@@ -238,6 +255,8 @@
 				F00358DE20279BA100C900BA /* ViewControllerInicio.swift */,
 				F00358E72027A7DF00C900BA /* ViewControllerReport.swift */,
 				F039FE342030AD920091790C /* ViewControllerHistory.swift */,
+				F07C07D9203E6A1200D94D9D /* ViewControllerSetting.swift */,
+				F07C07DB203E78E700D94D9D /* ViewControllerComboSetting.swift */,
 				F034A78320256EFA00FA2737 /* Main.storyboard */,
 				F034A78620256EFA00FA2737 /* Assets.xcassets */,
 				F034A78820256EFA00FA2737 /* LaunchScreen.storyboard */,
@@ -247,6 +266,8 @@
 				F06AE5AC20260C630009DEF8 /* CardSettingsCombo.swift */,
 				F075FB322026ACFA0075A352 /* CardAircraft.swift */,
 				F075FB342026AFCC0075A352 /* CardExpenses.swift */,
+				F0F4AD232049B35700EDA486 /* ReportCombo.swift */,
+				F0F4AD252049B58E00EDA486 /* ReportComboCell.swift */,
 			);
 			path = "ec charter";
 			sourceTree = "<group>";
@@ -579,6 +600,7 @@
 			files = (
 				F00358E42027A30F00C900BA /* Expenses.swift in Sources */,
 				F00358EA2027A9BA00C900BA /* Variable.swift in Sources */,
+				F07C07DC203E78E700D94D9D /* ViewControllerComboSetting.swift in Sources */,
 				F06AE5AB20260AD70009DEF8 /* CardSettings.swift in Sources */,
 				F00358E220279EA000C900BA /* Report.swift in Sources */,
 				F0E4AB042032AB4400028BF9 /* Email.swift in Sources */,
@@ -588,6 +610,10 @@
 				F039FE352030AD920091790C /* ViewControllerHistory.swift in Sources */,
 				F00358E82027A7DF00C900BA /* ViewControllerReport.swift in Sources */,
 				F075FB332026ACFA0075A352 /* CardAircraft.swift in Sources */,
+				F0F4AD242049B35700EDA486 /* ReportCombo.swift in Sources */,
+				F07C07DA203E6A1200D94D9D /* ViewControllerSetting.swift in Sources */,
+				F039A49F2049893600A3D821 /* ViewControllerExpenses.swift in Sources */,
+				F039A4A32049899800A3D821 /* ViewControllerReports.swift in Sources */,
 				F06AE5AD20260C630009DEF8 /* CardSettingsCombo.swift in Sources */,
 				F06AE5A9202605610009DEF8 /* CardHistory.swift in Sources */,
 				F05F3F6B202FBC4400FA7CE0 /* Hora.swift in Sources */,
@@ -598,8 +624,10 @@
 				F0E5ED66202E47FF00395A38 /* BaseDatos.swift in Sources */,
 				F00358DF20279BA100C900BA /* ViewControllerInicio.swift in Sources */,
 				F00358DB2027772B00C900BA /* Token.swift in Sources */,
+				F0F4AD262049B58E00EDA486 /* ReportComboCell.swift in Sources */,
 				F0E4AB022032A55300028BF9 /* ViewControllerRemarks.swift in Sources */,
 				F0E5ED68202E86B900395A38 /* Lista.swift in Sources */,
+				F0F4AD282049BE0900EDA486 /* Protocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,12 +795,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8TX9E992NK;
+				DEVELOPMENT_TEAM = 3UCFDH4GAZ;
 				INFOPLIST_FILE = "ec charter/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "flight.ec-charter";
+				PRODUCT_BUNDLE_IDENTIFIER = flight.ec.charter.beta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
@@ -786,12 +814,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8TX9E992NK;
+				DEVELOPMENT_TEAM = 3UCFDH4GAZ;
 				INFOPLIST_FILE = "ec charter/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "flight.ec-charter";
+				PRODUCT_BUNDLE_IDENTIFIER = flight.ec.charter.beta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;

@@ -14,6 +14,8 @@ class ViewControllerFlight: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var final_hour: UITextField!
     @IBOutlet weak var initial_hour: UITextField!
     
+    var reportPassF: Report = Report()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

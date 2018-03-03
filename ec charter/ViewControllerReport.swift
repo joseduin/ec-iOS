@@ -8,15 +8,11 @@
 
 import UIKit
 
-class ViewControllerReport: UIViewController {
-
-    var reportPass: Report = Report()
-    var variable: Variable = Variable()
+class ViewControllerReport: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationController?.navigationBar.barTintColor = variable.tabColor
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,14 +21,5 @@ class ViewControllerReport: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

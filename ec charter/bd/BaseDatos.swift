@@ -587,7 +587,6 @@ class BaseDatos {
         /**
          * CAPITAN AND COPILOT
          */
-        listaCapitanInsert(c: "-----------------");
         listaCapitanInsert(c: "Juan Ramirez".uppercased());
         listaCapitanInsert(c: "Eduardo Almanzor".uppercased());
         listaCapitanInsert(c: "Armando Travieso".uppercased());
@@ -603,7 +602,6 @@ class BaseDatos {
         /**
          *   CUSTOMER
          **/
-        listaCustomerInsert(c: "-----------------");
         listaCustomerInsert(c: "AGUSTO MERINO");
         listaCustomerInsert(c: "ALBERTO DIAZ");
         listaCustomerInsert(c: "ALBERTO FINOL");
@@ -717,7 +715,6 @@ class BaseDatos {
         /**
          *   AIRCRAFT
          **/
-        listaAircraftInsert(c: "-----------------");
         listaAircraftInsert(c: "YV3346");
         listaAircraftInsert(c: "YV2949");
         listaAircraftInsert(c: "YV2951");

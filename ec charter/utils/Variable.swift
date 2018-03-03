@@ -13,5 +13,12 @@ class Variable {
     
     let tabColor = UIColor(red:18/255.0, green: 106/255.0, blue: 170/255.0, alpha: 1)
     
+    func menuSettings() ->[String] {
+        var menu:[String] = [String]()
+        menu.append("CUSTOMER")
+        menu.append("AIRCRAFT")
+        menu.append("CAPITAN / COPILOT")
+        return menu
+    }
 }
 

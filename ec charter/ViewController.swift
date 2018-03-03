@@ -19,8 +19,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var pin: UITextField!
     let token: Token = Token()
     
-    var dataBase: Connection!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

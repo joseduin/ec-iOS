@@ -12,7 +12,7 @@ import Toast_Swift
 
 class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelegate, UITextViewDelegate {
     
-    var reportPass: Report = Report()
+    var reportPassR: Report = Report()
     let bd: BaseDatos = BaseDatos()
     let email: Email = Email()
 
@@ -20,7 +20,6 @@ class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Remarks"
 
         // Do any additional setup after loading the view.
         self.remarks.delegate = self
@@ -52,7 +51,8 @@ class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelega
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        <#code#>
+        let text = self.remarks.text
+        print(text as Any)
     }
     
     func performAction() {
@@ -60,11 +60,11 @@ class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelega
     }
     
     func loadReport() {
-        remarks.text = reportPass.remarks
+        remarks.text = reportPassR.remarks
     }
     
     @IBAction func send(_ sender: UIButton) {
-        let report: Report = bd.reportById(id: reportPass.id)
+        let report: Report = bd.reportById(id: reportPassR.id)
         
        // if (report.aircraft.isEmpty
        //     || report.capitan.isEmpty

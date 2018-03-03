@@ -9,34 +9,26 @@
 import UIKit
 import Toast_Swift
 
-class ViewControllerBasic: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewControllerBasic: UIViewController, writeValueBackDelegate,
+    UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var customer_label: UITextField!
-    @IBOutlet weak var aircraft_label: UITextField!
-    @IBOutlet weak var capitan_label: UITextField!
-    @IBOutlet weak var copilot_label: UITextField!
     @IBOutlet weak var date_label: UITextField!
-    
-    @IBOutlet weak var customer: UIPickerView!
-    @IBOutlet weak var aircraft: UIPickerView!
-    @IBOutlet weak var capitan: UIPickerView!
-    @IBOutlet weak var copilot: UIPickerView!
-    @IBOutlet weak var fecha: UIDatePicker!
-    
-    var arrCustomer = [String]()
-    var arrAircraft = [String]()
-    var arrCapitan  = [String]()
-    var arrCopilot  = [String]()
+    @IBOutlet weak var passenger: UITextView!
+    @IBOutlet weak var passengerPhoto: UILabel!
+    @IBOutlet weak var customer: UIButton!
+    @IBOutlet weak var aircraft: UIButton!
+    @IBOutlet weak var capitan: UIButton!
+    @IBOutlet weak var copilot: UIButton!
+    @IBOutlet weak var cockpit: UISwitch!
     
     let bd: BaseDatos = BaseDatos()
+    var reportPassB: Report = Report()
+    var buscarCombo: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.ocultarCombos()
-        self.cargarCombos()
-        
-        camereOrGalleryPhotoPicker()
+        loadReport()
     }
     
     func camereOrGalleryPhotoPicker() {
@@ -94,133 +86,69 @@ class ViewControllerBasic: UIViewController, UIPickerViewDelegate, UIPickerViewD
         // Dispose of any resources that can be recreated.
     }
     
-    func cargarCombos() {
-        self.arrCustomer = self.bd.listaCustomer()
-        self.arrAircraft = self.bd.listaAircraft()
-        self.arrCapitan = self.bd.listaCapitan()
-        self.arrCopilot = self.bd.listaCapitan()
-    }
-    func ocultarCombos() {
-        self.customer.isHidden = true
-        self.aircraft.isHidden = true
-        self.capitan.isHidden = true
-        self.copilot.isHidden = true
-        self.fecha.isHidden = true
-    }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-        if textField == self.customer_label {
-            self.customer.isHidden = false
-        } else if textField == self.aircraft_label {
-            self.aircraft.isHidden = false
-        } else if textField == self.capitan_label {
-            self.capitan.isHidden = false
-        } else {
-            self.copilot.isHidden = false
-        }
-        textField.endEditing(true)
-    }
     @IBAction func show_custo(_ sender: UIButton) {
-        print("customerss")
-        self.customer.isHidden = false
-        
-        let alertView = UIAlertController(
-            title: "Select item from list",
-            message: "\n\n\n\n\n\n\n\n\n",
-            preferredStyle: .alert)
-        
-      
-        
-        // comment this line to use white color
-        self.customer.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
-        
-        alertView.view.addSubview(self.customer)
-        
-        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-        
-        alertView.addAction(action)
-        self.present(alertView, animated: true, completion: {
-            self.customer.frame.size.width = alertView.view.frame.size.width
-        })
+        self.buscarCombo = 1
+        self.performSegue(withIdentifier: "reportToCombo", sender: self)
     }
-    @IBAction func show_customer(_ sender: UITextField) {
-        self.customer.isHidden = false
+    @IBAction func show_aircraft(_ sender: UIButton) {
+        self.buscarCombo = 2
+        self.performSegue(withIdentifier: "reportToCombo", sender: self)
     }
-    @IBAction func show_aircraft(_ sender: UITextField) {
-        self.aircraft.isHidden = false
+    @IBAction func show_capitan(_ sender: UIButton) {
+        self.buscarCombo = 3
+        self.performSegue(withIdentifier: "reportToCombo", sender: self)
     }
-    @IBAction func show_capitan(_ sender: UITextField) {
-        self.capitan.isHidden = false
+    @IBAction func show_copilot(_ sender: UIButton) {
+        self.buscarCombo = 4
+        self.performSegue(withIdentifier: "reportToCombo", sender: self)
     }
-    @IBAction func show_copilot(_ sender: UITextField) {
-        self.copilot.isHidden = false
+    @IBAction func cockpit_check(_ sender: UISwitch) {
+        self.reportPassB.cockpit = self.cockpit.isOn
+        self.bd.reportUpdate(report: self.reportPassB, atributo: "cockpit")
     }
-    @IBAction func show_fecha(_ sender: UITextField) {
-    }
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == self.customer {
-            return self.arrCustomer.count
-        } else if pickerView == self.aircraft {
-            return self.arrAircraft.count
-        } else if pickerView == self.capitan {
-            return self.arrCapitan.count
-        } else {
-            return self.arrCopilot.count
-        }
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        self.view.endEditing(true)
-
-        if pickerView == self.customer {
-            return self.arrCustomer[row]
-        } else if pickerView == self.aircraft {
-            return self.arrAircraft[row]
-        } else if pickerView == self.capitan {
-            return self.arrCapitan[row]
-        } else {
-            return self.arrCopilot[row]
-        }
-    }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == self.customer {
-            self.customer_label.text = self.arrCustomer[row]
-            self.customer.isHidden = true
-        } else if pickerView == self.aircraft {
-            self.aircraft_label.text = self.arrAircraft[row]
-            self.aircraft.isHidden = true
-        } else if pickerView == self.capitan {
-            self.capitan_label.text = self.arrCapitan[row]
-            self.capitan.isHidden = true
-        } else {
-            self.copilot_label.text = self.arrCopilot[row]
-            self.copilot.isHidden = true
-        }
+    @IBAction func selectPhoto(_ sender: UIButton) {
+        camereOrGalleryPhotoPicker()
     }
     
-    func agregarCombo() {
-        let alert = UIAlertController(title: "titulo", message: nil, preferredStyle: .alert)
-        alert.addTextField { (tf) in tf.placeholder = "ITEM" }
-        let action = UIAlertAction(title: "Submit", style: .default) { (_) in
-            guard let combo = alert.textFields?.first?.text
-                else {return}
-            print(combo)
-        }
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        if segue.identifier == "reportToCombo" {
 
+            if let viewController = segue.destination as? ReportCombo {
+                viewController.buscar = self.buscarCombo
+                viewController.delegate = self
+             }
+        }
+    }
+    
+    func writeValueBack(value: String) {
+        if self.buscarCombo == 1 {
+            self.customer.setTitle(value, for: .normal)
+            self.reportPassB.customer = value
+            self.bd.reportUpdate(report: self.reportPassB, atributo: "customer")
+        } else if self.buscarCombo == 2 {
+            self.aircraft.setTitle(value, for: .normal)
+            self.reportPassB.aircraft = value
+            self.bd.reportUpdate(report: self.reportPassB, atributo: "aircraft")
+        } else if self.buscarCombo == 3 {
+            self.capitan.setTitle(value, for: .normal)
+            self.reportPassB.capitan = value
+            self.bd.reportUpdate(report: self.reportPassB, atributo: "capitan")
+        } else if self.buscarCombo == 4 {
+            self.copilot.setTitle(value, for: .normal)
+            self.reportPassB.copilot = value
+            self.bd.reportUpdate(report: self.reportPassB, atributo: "copilot")
+        }
+    }
+    
+    func loadReport() {
+        self.customer.setTitle(self.reportPassB.customer, for: .normal)
+        self.aircraft.setTitle(self.reportPassB.aircraft, for: .normal)
+        self.capitan.setTitle(self.reportPassB.capitan, for: .normal)
+        self.copilot.setTitle(self.reportPassB.copilot, for: .normal)
+        self.date_label.text = self.reportPassB.date
+        self.passenger.text = self.reportPassB.passengers
+        self.passengerPhoto.text = self.reportPassB.passengers_photo
+        self.cockpit.isOn = self.reportPassB.cockpit
+    }
+    
 }
