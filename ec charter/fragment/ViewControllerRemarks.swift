@@ -20,10 +20,9 @@ class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         self.remarks.delegate = self
 
+        loadReport()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,21 +30,14 @@ class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelega
         // Dispose of any resources that can be recreated.
     }
     
-    func inputUpperCase() {
-        // falta
-    }
-    
-    func changedRemarks() {
-        // falta
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn  range: NSRange, replacementText text: String) -> Bool {
-        if textView == self.remarks {
-            print(text)
-            if (text == "\n") {
-                textView.resignFirstResponder()
-                performAction()
-            }
+        if (text == "\n") {
+            self.remarks.resignFirstResponder()
+            return false
         }
         return true
     }
@@ -53,10 +45,6 @@ class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelega
     func textViewDidEndEditing(_ textView: UITextView) {
         let text = self.remarks.text
         print(text as Any)
-    }
-    
-    func performAction() {
-        
     }
     
     func loadReport() {
@@ -116,14 +104,4 @@ class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelega
         return nil
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

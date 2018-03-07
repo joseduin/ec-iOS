@@ -1,5 +1,6 @@
 PODS:
   - CryptoSwift (0.8.1)
+  - DatePickerDialog (2.0)
   - SQLite.swift (0.11.4):
     - SQLite.swift/standard (= 0.11.4)
   - SQLite.swift/standard (0.11.4)
@@ -8,16 +9,18 @@ PODS:
 
 DEPENDENCIES:
   - CryptoSwift
+  - DatePickerDialog
   - SQLite.swift (~> 0.11.4)
   - Toast-Swift (~> 3.0.1)
   - UIDropDown
 
 SPEC CHECKSUMS:
   CryptoSwift: 4b07d5b508c1eb67bfa314a727b705f8048a85de
+  DatePickerDialog: 5e1c24d9fe6506cd45dbc573eed7b0a251b1c09d
   SQLite.swift: 3e3bee21da701b5b9f87c4a672cb54f233505692
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   UIDropDown: 22e6e3e22d419884c8f21d95ea9be36aac905ed4
 
-PODFILE CHECKSUM: 7cbc658fd96e58a7c1c0f783b659e0cfabd63a74
+PODFILE CHECKSUM: 2242a76b811f6388c84cab52903f4f94498b4ae9
 
 COCOAPODS: 1.4.0

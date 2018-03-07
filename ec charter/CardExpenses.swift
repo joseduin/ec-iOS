@@ -14,22 +14,19 @@ class CardExpenses: UITableViewCell {
     @IBOutlet weak var photo: UILabel!
     @IBOutlet weak var descripcion: UILabel!
     @IBOutlet weak var photo_boton: UIButton!
-    @IBAction func delete_item(_ sender: UIButton) {
-    }
-    @IBAction func edit_item(_ sender: UIButton) {
-    }
-    @IBAction func preview_photo(_ sender: UIButton) {
-    }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
+    }
+    
+    @IBAction func preview_photo(_ sender: UIButton) {
     }
 
 }

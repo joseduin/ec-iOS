@@ -10,7 +10,7 @@ import UIKit
 import Toast_Swift
 import SQLite
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     // https://github.com/Kilo-Loco/SQLite
     // https://www.youtube.com/watch?v=c4wLS9py1rU
@@ -21,9 +21,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.pin.delegate = self
         
-        // keyboard
-        pin.resignFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,6 +38,17 @@ class ViewController: UIViewController {
         } else {
             self.performSegue(withIdentifier: "loginToInicio", sender: self)
         }
+    }
+    
+    // cuando se aprieta fuera del campo de texto
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    // boton return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.pin.resignFirstResponder()
+        return true
     }
     
 }

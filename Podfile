@@ -11,6 +11,7 @@ target 'ec charter' do
   pod 'CryptoSwift'
   pod 'SQLite.swift', '~> 0.11.4'
   pod 'UIDropDown'
+  pod 'DatePickerDialog'
 
   target 'ec charterTests' do
     inherit! :search_paths

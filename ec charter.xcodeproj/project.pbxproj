@@ -31,7 +31,7 @@
 		F039A49F2049893600A3D821 /* ViewControllerExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F039A49E2049893600A3D821 /* ViewControllerExpenses.swift */; };
 		F039A4A32049899800A3D821 /* ViewControllerReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = F039A4A22049899700A3D821 /* ViewControllerReports.swift */; };
 		F039FE352030AD920091790C /* ViewControllerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F039FE342030AD920091790C /* ViewControllerHistory.swift */; };
-		F039FE38203112E80091790C /* UIDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F039FE39203112E80091790C /* UIDropDown.framework */; };
+		F039FE38203112E80091790C /* UIDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F039FE39203112E80091790C /* UIDropDown.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F05F3F6B202FBC4400FA7CE0 /* Hora.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F3F6A202FBC4400FA7CE0 /* Hora.swift */; };
 		F06AE5A9202605610009DEF8 /* CardHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06AE5A8202605610009DEF8 /* CardHistory.swift */; };
 		F06AE5AB20260AD70009DEF8 /* CardSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06AE5AA20260AD70009DEF8 /* CardSettings.swift */; };
@@ -40,12 +40,14 @@
 		F075FB352026AFCC0075A352 /* CardExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F075FB342026AFCC0075A352 /* CardExpenses.swift */; };
 		F07C07DA203E6A1200D94D9D /* ViewControllerSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07C07D9203E6A1200D94D9D /* ViewControllerSetting.swift */; };
 		F07C07DC203E78E700D94D9D /* ViewControllerComboSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07C07DB203E78E700D94D9D /* ViewControllerComboSetting.swift */; };
+		F09795D0204FB4A400BBE219 /* DatePickerDialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F09795D1204FB4A400BBE219 /* DatePickerDialog.framework */; };
 		F0E4AB022032A55300028BF9 /* ViewControllerRemarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E4AB012032A55300028BF9 /* ViewControllerRemarks.swift */; };
 		F0E4AB042032AB4400028BF9 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E4AB032032AB4400028BF9 /* Email.swift */; };
 		F0E5ED64202E3FE900395A38 /* ConstantesBaseDatos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E5ED63202E3FE900395A38 /* ConstantesBaseDatos.swift */; };
 		F0E5ED66202E47FF00395A38 /* BaseDatos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E5ED65202E47FF00395A38 /* BaseDatos.swift */; };
 		F0E5ED68202E86B900395A38 /* Lista.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E5ED67202E86B900395A38 /* Lista.swift */; };
 		F0F306A62033AE0A000734F4 /* ViewControllerFlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F306A52033AE0A000734F4 /* ViewControllerFlight.swift */; };
+		F0F38316204EFB7D00997A76 /* ViewControllerExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F38315204EFB7D00997A76 /* ViewControllerExpense.swift */; };
 		F0F4AD242049B35700EDA486 /* ReportCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4AD232049B35700EDA486 /* ReportCombo.swift */; };
 		F0F4AD262049B58E00EDA486 /* ReportComboCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4AD252049B58E00EDA486 /* ReportComboCell.swift */; };
 		F0F4AD282049BE0900EDA486 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4AD272049BE0900EDA486 /* Protocol.swift */; };
@@ -115,12 +117,14 @@
 		F075FB342026AFCC0075A352 /* CardExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExpenses.swift; sourceTree = "<group>"; };
 		F07C07D9203E6A1200D94D9D /* ViewControllerSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSetting.swift; sourceTree = "<group>"; };
 		F07C07DB203E78E700D94D9D /* ViewControllerComboSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerComboSetting.swift; sourceTree = "<group>"; };
+		F09795D1204FB4A400BBE219 /* DatePickerDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DatePickerDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E4AB012032A55300028BF9 /* ViewControllerRemarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRemarks.swift; sourceTree = "<group>"; };
 		F0E4AB032032AB4400028BF9 /* Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		F0E5ED63202E3FE900395A38 /* ConstantesBaseDatos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantesBaseDatos.swift; sourceTree = "<group>"; };
 		F0E5ED65202E47FF00395A38 /* BaseDatos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDatos.swift; sourceTree = "<group>"; };
 		F0E5ED67202E86B900395A38 /* Lista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lista.swift; sourceTree = "<group>"; };
 		F0F306A52033AE0A000734F4 /* ViewControllerFlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFlight.swift; sourceTree = "<group>"; };
+		F0F38315204EFB7D00997A76 /* ViewControllerExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExpense.swift; sourceTree = "<group>"; };
 		F0F4AD232049B35700EDA486 /* ReportCombo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCombo.swift; sourceTree = "<group>"; };
 		F0F4AD252049B58E00EDA486 /* ReportComboCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportComboCell.swift; sourceTree = "<group>"; };
 		F0F4AD272049BE0900EDA486 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F09795D0204FB4A400BBE219 /* DatePickerDialog.framework in Frameworks */,
 				F039FE38203112E80091790C /* UIDropDown.framework in Frameworks */,
 				F00358F42027ED9B00C900BA /* SQLite.framework in Frameworks */,
 				F00358ED2027BC3900C900BA /* Toast_Swift.framework in Frameworks */,
@@ -174,6 +179,7 @@
 		8C21F9DF6C8938890695B954 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F09795D1204FB4A400BBE219 /* DatePickerDialog.framework */,
 				F039FE39203112E80091790C /* UIDropDown.framework */,
 				F039FE372030F0AB0091790C /* DropDown.framework */,
 				F00358F52027ED9B00C900BA /* SQLite.framework */,
@@ -253,10 +259,11 @@
 				F034A77F20256EFA00FA2737 /* AppDelegate.swift */,
 				F034A78120256EFA00FA2737 /* ViewController.swift */,
 				F00358DE20279BA100C900BA /* ViewControllerInicio.swift */,
-				F00358E72027A7DF00C900BA /* ViewControllerReport.swift */,
 				F039FE342030AD920091790C /* ViewControllerHistory.swift */,
 				F07C07D9203E6A1200D94D9D /* ViewControllerSetting.swift */,
 				F07C07DB203E78E700D94D9D /* ViewControllerComboSetting.swift */,
+				F00358E72027A7DF00C900BA /* ViewControllerReport.swift */,
+				F0F38315204EFB7D00997A76 /* ViewControllerExpense.swift */,
 				F034A78320256EFA00FA2737 /* Main.storyboard */,
 				F034A78620256EFA00FA2737 /* Assets.xcassets */,
 				F034A78820256EFA00FA2737 /* LaunchScreen.storyboard */,
@@ -479,6 +486,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ec charter/Pods-ec charter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/UIDropDown/UIDropDown.framework",
@@ -486,6 +494,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIDropDown.framework",
@@ -613,6 +622,7 @@
 				F0F4AD242049B35700EDA486 /* ReportCombo.swift in Sources */,
 				F07C07DA203E6A1200D94D9D /* ViewControllerSetting.swift in Sources */,
 				F039A49F2049893600A3D821 /* ViewControllerExpenses.swift in Sources */,
+				F0F38316204EFB7D00997A76 /* ViewControllerExpense.swift in Sources */,
 				F039A4A32049899800A3D821 /* ViewControllerReports.swift in Sources */,
 				F06AE5AD20260C630009DEF8 /* CardSettingsCombo.swift in Sources */,
 				F06AE5A9202605610009DEF8 /* CardHistory.swift in Sources */,

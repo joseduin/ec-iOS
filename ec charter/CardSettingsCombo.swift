@@ -11,17 +11,15 @@ import UIKit
 class CardSettingsCombo: UITableViewCell {
 
     @IBOutlet weak var titulo: UILabel!
-    @IBOutlet weak var delete_button: UIButton!
-    @IBAction func item_delete(_ sender: UIButton) {
-    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
 

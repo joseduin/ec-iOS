@@ -90,10 +90,6 @@ class ViewControllerInicio: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "inicioToReport" {
             
-            //if let viewController = segue.destination as? ViewControllerReport {
-            //    viewController.reportPass = self.reportPass
-           // }
-            
             let tabBarC : UITabBarController = segue.destination as! UITabBarController
 
             let basic: ViewControllerBasic      = tabBarC.viewControllers![0] as! ViewControllerBasic

@@ -13,14 +13,9 @@ class CardHistory: UITableViewCell {
     @IBOutlet weak var customer: UILabel!
     @IBOutlet weak var aircraft: UILabel!
     @IBOutlet weak var capitan: UILabel!
-    @IBOutlet weak var copilot: UILabel!
+    @IBOutlet weak var copilot: UILabel! 
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var draft: UILabel!
-    @IBAction func ver_report(_ sender: UIButton) {
-    }
-    @IBAction func eliminar_report(_ sender: UIButton) {
-    }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

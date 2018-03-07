@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4B079270067F703F31D13410002EF8AD"
-               BlueprintName = "UIDropDown"
+               BlueprintIdentifier = "184A1650DC0B648BD756068E60BF2C59"
+               BlueprintName = "DatePickerDialog"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "UIDropDown.framework">
+               BuildableName = "DatePickerDialog.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

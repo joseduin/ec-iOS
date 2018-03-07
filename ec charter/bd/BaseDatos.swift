@@ -375,7 +375,8 @@ class BaseDatos {
             bd.TABLE_EXPENSES_TOTAL <- expense.total,
             bd.TABLE_EXPENSES_CURRENCY <- expense.currency,
             bd.TABLE_EXPENSES_DESCRIPTION <- expense.description,
-            bd.TABLE_EXPENSES_PHOTO <- expense.photo)
+            bd.TABLE_EXPENSES_PHOTO <- expense.photo,
+            bd.TABLE_EXPENSES_ID_REPORT <- expense.report.id)
         executeInsert(sql: sql)
     }
     
@@ -435,7 +436,8 @@ class BaseDatos {
     func aircraftInsert(aircraft: AircraftReport) {
         let sql = self.bd.TABLE_AIRCRAFT_REPORT.insert(
             bd.TABLE_AIRCRAFT_REPORT_DESCRIPTION <- aircraft.description,
-            bd.TABLE_AIRCRAFT_REPORT_PHOTO <- aircraft.photo)
+            bd.TABLE_AIRCRAFT_REPORT_PHOTO <- aircraft.photo,
+            bd.TABLE_AIRCRAFT_REPORT_ID_REPORT <- aircraft.report.id)
         executeInsert(sql: sql)
     }
     
@@ -460,6 +462,7 @@ class BaseDatos {
     func actualizarListado(value: String, id: Int, table: Table) {
         let update = table.filter(bd.TABLE_LIST_ID == id)
         let sql = update.update(bd.TABLE_LIST_DESCRIPTION <- value)
+        
         executeUpdate(sql: sql)
     }
     
@@ -474,14 +477,12 @@ class BaseDatos {
         do {
             let listModel = try self.database.prepare( listado )
             for l in listModel {
-                if (l[bd.TABLE_LIST_DESCRIPTION == value]) {
+                if (l[bd.TABLE_LIST_DESCRIPTION] == value) {
                     i = l[bd.TABLE_LIST_ID]
                     break
                 }
             }
-        } catch {
-            print(error)
-        }
+        } catch { print(error) }
         return i
     }
     

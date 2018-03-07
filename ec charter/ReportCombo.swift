@@ -51,6 +51,10 @@ class ReportCombo: UIViewController, UITableViewDelegate, UITableViewDataSource 
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listado.count
     }
@@ -71,7 +75,10 @@ class ReportCombo: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     @IBAction func agregar(_ sender: UIButton) {
         let alert = UIAlertController(title: "New Item", message: nil, preferredStyle: .alert)
-        alert.addTextField { (tf) in tf.placeholder = "ADD ITEM" }
+        alert.addTextField { (tf) in
+            tf.placeholder = "ADD ITEM"
+            tf.autocapitalizationType = UITextAutocapitalizationType.allCharacters
+        }
         let action = UIAlertAction(title: "Save", style: .default) { (_) in
             guard let combo = alert.textFields?.first?.text
                 else {return}
