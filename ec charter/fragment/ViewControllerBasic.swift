@@ -13,8 +13,6 @@ import DatePickerDialog
 class ViewControllerBasic: UIViewController, writeValueBackDelegate,
     UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    // Falta guardar fecha, pasageros y la foto
-    
     @IBOutlet weak var date_label: UIButton!
     @IBOutlet weak var passenger: UITextView!
     @IBOutlet weak var passengerPhoto: UILabel!
@@ -26,8 +24,12 @@ class ViewControllerBasic: UIViewController, writeValueBackDelegate,
     
     let bd: BaseDatos = BaseDatos()
     var reportPassB: Report = Report()
+    let hora: Hora = Hora()
+
+    let defaults = UserDefaults.standard
     var buscarCombo: Int = 0
     var cameraRequest: Bool = false
+    var photo_path: Data = Data()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +38,16 @@ class ViewControllerBasic: UIViewController, writeValueBackDelegate,
         loadReport()
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     func camereOrGalleryPhotoPicker() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         
-        let actionSheet = UIAlertController(title: "Select a Method", message: nil, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "Select a Method", message: nil, preferredStyle: .alert)//.actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler:{ (action:UIAlertAction) in
             
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -57,6 +64,23 @@ class ViewControllerBasic: UIViewController, writeValueBackDelegate,
             self.cameraRequest = false
             self.present(imagePickerController, animated: true, completion: nil)
         }))
+        if !self.photo_path.isEmpty {
+            actionSheet.addAction(UIAlertAction(title: "Preview", style: .default, handler:{ (action:UIAlertAction) in
+                if self.defaults.data(forKey: self.passengerPhoto.text!) == nil {
+                    self.view.makeToast("Wait a second, loading image on app..", duration: 3.0, position: .bottom)
+                } else {
+                    self.performSegue(withIdentifier: "imagenPreviewBasic", sender: self)
+                }
+            }))
+        }
+        if !self.photo_path.isEmpty {
+            actionSheet.addAction(UIAlertAction(title: "Remove Picture", style: .default, handler:{ (action:UIAlertAction) in
+                self.photo_path = Data()
+                self.passengerPhoto.text = ""
+                self.reportPassB.passengers_photo = ""
+                self.bd.reportUpdate(report: self.reportPassB, atributo: "passengers_photo")
+            }))
+        }
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
     
         self.present(actionSheet, animated: true, completion: nil)
@@ -64,49 +88,22 @@ class ViewControllerBasic: UIViewController, writeValueBackDelegate,
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let imagen = info[UIImagePickerControllerOriginalImage] as? UIImage
+        self.photo_path = UIImageJPEGRepresentation(imagen!, 0.8)!//UIImagePNGRepresentation(imagen!)!
+        
+        let path = String(describing: photo_path).replacingOccurrences(of: "bytes", with: "")
+        self.passengerPhoto.text = path
+        self.reportPassB.passengers_photo = path
+        self.bd.reportUpdate(report: self.reportPassB, atributo: "passengers_photo")
+
+        DispatchQueue.global(qos: .background).async {
+            self.defaults.set(self.photo_path, forKey: path)
+            self.defaults.synchronize()
+        }
         
         // Guardar la photo en la libreria
         if (self.cameraRequest) {
             UIImageWriteToSavedPhotosAlbum(imagen!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
         }
-        
-        /*
-        let imageUrl          = info[UIImagePickerControllerPHAsset] as! NSURL
-        let imageName         = imageUrl.lastPathComponent
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-        let photoURL          = NSURL(fileURLWithPath: documentDirectory)
-        let localPath         = photoURL.appendingPathComponent(imageName!)
-        let image             = info[UIImagePickerControllerOriginalImage]as! UIImage
-        let data              = UIImagePNGRepresentation(image)
-        
-        print("PHOTOOO")
-        do {
-            try data?.write(to: localPath!, options: Data.WritingOptions.atomic)
-            print(String(describing: imageName))
-        } catch {
-            print("Error")
-            print(error)
-        }*/
-        
-        let imageUrl          = info[UIImagePickerControllerReferenceURL] as? NSURL
-        let imageName         = imageUrl?.lastPathComponent
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-        let photoURL          = NSURL(fileURLWithPath: documentDirectory)
-        let localPath         = photoURL.appendingPathComponent(imageName!)
-        
-        if !FileManager.default.fileExists(atPath: localPath!.path) {
-            do {
-                try UIImageJPEGRepresentation(imagen!, 1.0)?.write(to: localPath!, options: .atomic)
-                print("file saved")
-            }catch {
-                print("error saving file")
-            }
-        }
-        else {
-            print("file already exists")
-        }
-        print("path", localPath as Any, "noombre", imageName as Any)
-
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -117,21 +114,11 @@ class ViewControllerBasic: UIViewController, writeValueBackDelegate,
     //MARK: - Add image to Library
     @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {
-            // we got back an error!
-            let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            present(ac, animated: true)
-        } else {
-            let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            present(ac, animated: true)
-        }
-    }
-    
+            self.view.makeToast(error.localizedDescription, duration: 3.0, position: .bottom)
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        } else {
+            print("Saved!")
+        }
     }
     
     @IBAction func show_custo(_ sender: UIButton) {
@@ -158,14 +145,14 @@ class ViewControllerBasic: UIViewController, writeValueBackDelegate,
         camereOrGalleryPhotoPicker()
     }
     @IBAction func show_datePicker(_ sender: UIButton) {
-        DatePickerDialog().show("DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
+        DatePickerDialog().show("Select a date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
             (date) -> Void in
             if let dt = date {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "dd-MMM-yy"
-                self.date_label.setTitle(formatter.string(from: dt), for: .normal)
+                self.date_label.setTitle(formatter.string(from: dt).uppercased(), for: .normal)
                 
-                self.reportPassB.date = formatter.string(from: dt)
+                self.reportPassB.date = formatter.string(from: dt).uppercased()
                 self.bd.reportUpdate(report: self.reportPassB, atributo: "date")
             }
         }
@@ -178,6 +165,11 @@ class ViewControllerBasic: UIViewController, writeValueBackDelegate,
                 viewController.buscar = self.buscarCombo
                 viewController.delegate = self
              }
+        } else if segue.identifier == "imagenPreviewBasic"  {
+            
+            if let viewController = segue.destination as? ImagePreview {
+                viewController.img = defaults.data(forKey: self.passengerPhoto.text!)!
+            }
         }
     }
     
@@ -209,6 +201,9 @@ class ViewControllerBasic: UIViewController, writeValueBackDelegate,
         self.date_label.setTitle(self.reportPassB.date, for: .normal)
         self.passenger.text = self.reportPassB.passengers
         self.passengerPhoto.text = self.reportPassB.passengers_photo
+        if !self.reportPassB.passengers_photo.isEmpty {
+            self.photo_path = defaults.data(forKey: self.reportPassB.passengers_photo)!
+        }
         self.cockpit.isOn = self.reportPassB.cockpit
     }
     
@@ -218,6 +213,11 @@ class ViewControllerBasic: UIViewController, writeValueBackDelegate,
     
     /* Dissmis keyboad to TextView */
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        if (textView == self.passenger) {
+            self.passenger.text = self.passenger.text!.replacingOccurrences(of: ",", with: "\n")
+        }
+        
         if (text == "\n") {
             self.passenger.resignFirstResponder()
             return false
@@ -226,8 +226,8 @@ class ViewControllerBasic: UIViewController, writeValueBackDelegate,
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        let text = self.passenger.text
-        print(text as Any)
+        self.reportPassB.passengers = self.passenger.text!
+        self.bd.reportUpdate(report: self.reportPassB, atributo: "passangers")
     }
     
 }

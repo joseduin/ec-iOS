@@ -11,8 +11,9 @@ import UIKit
 class CardAircraft: UITableViewCell {
 
     @IBOutlet weak var descripcion: UILabel!
-    @IBOutlet weak var photo: UILabel!
-    @IBOutlet weak var photo_boton: UIButton!
+    @IBOutlet weak var photo: UILabel! 
+    @IBOutlet weak var photo_boton: UIButton! 
+    var delegate: cellImagePreviewDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +27,7 @@ class CardAircraft: UITableViewCell {
     }
     
     @IBAction func photo_preview(_ sender: UIButton) {
+        delegate?.selectdCellImagenPreview(photo_path: self.photo.text!)
     }
 
 }

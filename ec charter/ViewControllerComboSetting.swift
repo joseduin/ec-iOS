@@ -31,6 +31,7 @@ class ViewControllerComboSetting: UIViewController, UITableViewDelegate, UITable
             self.title = "Capitan / Copilot"
             self.listado = self.bd.listaCapitan()
         }
+        
     }
 
     override func didReceiveMemoryWarning() {

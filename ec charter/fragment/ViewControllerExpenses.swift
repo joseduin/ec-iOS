@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerExpenses: UIViewController, UITableViewDelegate, UITableViewDataSource, writeValueBackDelegate {
+class ViewControllerExpenses: UIViewController, UITableViewDelegate, UITableViewDataSource, writeValueBackDelegate, cellImagePreviewDelegate {
 
     @IBOutlet weak var tabla: UITableView!
     
@@ -16,6 +16,8 @@ class ViewControllerExpenses: UIViewController, UITableViewDelegate, UITableView
     let bd: BaseDatos = BaseDatos()
     var listado:[Expenses] = [Expenses]()
     var expensePass:Expenses = Expenses()
+    var photoPathPass: String = ""
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,16 @@ class ViewControllerExpenses: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "CardExpenses") as! CardExpenses
         let item = listado[indexPath.row]
         cell.total.text = "\(String(format:"%.2f", item.total)) \(item.currency)"
-        cell.photo.text = item.photo
+        if item.photo.isEmpty {
+            cell.photo.isHidden = true
+            cell.photo_boton.isHidden = true
+        } else {
+            cell.photo.isHidden = false
+            cell.photo_boton.isHidden = false
+            
+            cell.photo.text = item.photo
+            cell.delegate = self
+        }
         cell.descripcion.text = item.description
         
         return cell
@@ -67,6 +78,20 @@ class ViewControllerExpenses: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let item = listado[indexPath.row]
+        if item.photo.isEmpty {
+            return 98
+        } else {
+            return 137
+        }
+    }
+    
+    func selectdCellImagenPreview(photo_path: String) {
+        self.photoPathPass = photo_path
+        self.performSegue(withIdentifier: "imagenPreview4", sender: self)
+    }
+    
     @IBAction func agregar(_ sender: UIButton) {
         self.expensePass = Expenses()
         self.performSegue(withIdentifier: "expensesToExpense", sender: self) 
@@ -79,6 +104,11 @@ class ViewControllerExpenses: UIViewController, UITableViewDelegate, UITableView
                 self.expensePass.report = self.reportPassE
                 viewController.expensePass = self.expensePass
                 viewController.delegate = self
+            }
+        } else if segue.identifier == "imagenPreview4" {
+            
+            if let viewController = segue.destination as? ImagePreview {
+                viewController.img = defaults.data(forKey: self.photoPathPass)!
             }
         }
     }

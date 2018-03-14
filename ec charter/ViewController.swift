@@ -31,9 +31,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func login(_ sender: UIButton) {
+        logIn()
+    }
+    
+    func logIn() {
         let clave = pin.text
         
-        if ( token.access(pass: clave!) ) {
+        if ( !token.access(pass: clave!) ) {
             self.view.makeToast("PIN Incorrect", duration: 3.0, position: .bottom)
         } else {
             self.performSegue(withIdentifier: "loginToInicio", sender: self)
@@ -48,6 +52,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // boton return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.pin.resignFirstResponder()
+        
+        if !self.pin.text!.isEmpty {
+            logIn()
+        }
         return true
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerReports: UIViewController, UITableViewDelegate, UITableViewDataSource, writeValueBackDelegate {
+class ViewControllerReports: UIViewController, UITableViewDelegate, UITableViewDataSource, writeValueBackDelegate, cellImagePreviewDelegate {
     
     @IBOutlet weak var tabla: UITableView!
 
@@ -16,6 +16,8 @@ class ViewControllerReports: UIViewController, UITableViewDelegate, UITableViewD
     let bd: BaseDatos = BaseDatos()
     var listado:[AircraftReport] = [AircraftReport]()
     var reportPass:AircraftReport = AircraftReport()
+    var photoPathPass: String = ""
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +41,16 @@ class ViewControllerReports: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CardAircraft") as! CardAircraft
         let item = listado[indexPath.row]
-        cell.photo.text = item.photo
+        if item.photo.isEmpty {
+            cell.photo.isHidden = true
+            cell.photo_boton.isHidden = true
+        } else {
+            cell.photo.isHidden = false
+            cell.photo_boton.isHidden = false
+            
+            cell.photo.text = item.photo
+            cell.delegate = self
+        }
         cell.descripcion.text = item.description
         
         return cell
@@ -49,7 +60,17 @@ class ViewControllerReports: UIViewController, UITableViewDelegate, UITableViewD
         let item = self.listado[indexPath.row]
         
         self.reportPass = item
-        self.performSegue(withIdentifier: "reportsToReport", sender: self)    }
+        self.performSegue(withIdentifier: "reportsToReport", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let item = listado[indexPath.row]
+        if item.photo.isEmpty {
+            return 74
+        } else {
+            return 112
+        }
+    }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -63,7 +84,12 @@ class ViewControllerReports: UIViewController, UITableViewDelegate, UITableViewD
             self.listado = self.bd.aircraftTodos(id_report: self.reportPassRe.id)
 
             DispatchQueue.main.async { self.tabla.reloadData() }
-        }
+        } 
+    }
+    
+    func selectdCellImagenPreview(photo_path: String) {
+        self.photoPathPass = photo_path
+        self.performSegue(withIdentifier: "imagenPreview2", sender: self)
     }
     
     @IBAction func agregar(_ sender: UIButton) {
@@ -78,6 +104,11 @@ class ViewControllerReports: UIViewController, UITableViewDelegate, UITableViewD
                 self.reportPass.report = self.reportPassRe
                 viewController.reportPass = self.reportPass
                 viewController.delegate = self
+            } 
+        } else if segue.identifier == "imagenPreview2" {
+            
+            if let viewController = segue.destination as? ImagePreview {
+                viewController.img = defaults.data(forKey: self.photoPathPass)!
             }
         }
     }

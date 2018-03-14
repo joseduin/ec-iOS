@@ -43,7 +43,7 @@ class ReportCombo: UIViewController, UITableViewDelegate, UITableViewDataSource 
             self.listado = self.bd.listaCurrency()
             self.btn_agregar.isHidden = true
         }
-
+        
     }
 
     override func didReceiveMemoryWarning() {

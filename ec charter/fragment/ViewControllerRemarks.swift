@@ -15,6 +15,9 @@ class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelega
     var reportPassR: Report = Report()
     let bd: BaseDatos = BaseDatos()
     let email: Email = Email()
+    var haveAircraftReport: Bool = false
+    var aircraftReport: Report = Report()
+    let defaults = UserDefaults.standard
 
     @IBOutlet weak var remarks: UITextView!
     
@@ -35,6 +38,10 @@ class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelega
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn  range: NSRange, replacementText text: String) -> Bool {
+        if (textView == self.remarks) {
+            self.remarks.text = self.remarks.text!.replacingOccurrences(of: ",", with: "\n")
+        }
+        
         if (text == "\n") {
             self.remarks.resignFirstResponder()
             return false
@@ -43,8 +50,8 @@ class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelega
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        let text = self.remarks.text
-        print(text as Any)
+        self.reportPassR.remarks = self.remarks.text!
+        self.bd.reportUpdate(report: self.reportPassR, atributo: "remarks")
     }
     
     func loadReport() {
@@ -54,32 +61,94 @@ class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelega
     @IBAction func send(_ sender: UIButton) {
         let report: Report = bd.reportById(id: reportPassR.id)
         
-       // if (report.aircraft.isEmpty
-       //     || report.capitan.isEmpty
-       //     || report.route.isEmpty) {
-       //     self.view.makeToast("Required fields: Aircraft, Capitan and Route", duration: 3.0, position: .bottom)
-       //     return
-       // }
+        if (report.aircraft.isEmpty
+            || report.capitan.isEmpty
+            || report.route.isEmpty) {
+            self.view.makeToast("Required fields: Aircraft, Capitan and Route", duration: 3.0, position: .center)
+            return
+        }
+                
+         if (report.hour_final < report.hour_initial) {
+            self.view.makeToast("Hour Final must be greater than Hour Initial", duration: 3.0, position: .center)
+            return
+        }
         
-       // if (report.hour_final < report.hour_initial) {
-        //    self.view.makeToast("Hour Final must be greater than Hour Initial", duration: 3.0, position: .bottom)
-       //     return
-       // }
+        self.aircraftReport = report
         sendMail(report: report)
+    }
+    
+    func sendAircrafReport(report: Report) {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            
+            mail.setToRecipients([email.EMAIL_REPORT])
+            mail.setSubject(email.titleReportEmail(report: report))
+            
+            self.haveAircraftReport = false
+            let aircrafts: [AircraftReport] = self.bd.aircraftTodos(id_report: report.id)
+            
+            var emailText: String = ""
+            emailText += email.aircraft(aircrafts: aircrafts, report: report, cantImg: 0)
+            for aircraf in aircrafts {
+                if !aircraf.photo.isEmpty {
+                    let imageData = defaults.data(forKey: aircraf.photo)!
+                    mail.addAttachmentData(imageData, mimeType: "image/png", fileName: aircraf.photo)
+                }
+            }
+            mail.setMessageBody(emailText, isHTML: false)
+            
+            self.present(mail, animated: true, completion: nil)
+        } else {
+            self.view.makeToast("Can not send mails", duration: 3.0, position: .bottom)
+        }
     }
     
     func sendMail(report: Report) {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
+
+            let expenses: [Expenses] = self.bd.expensestTodos(id_report: report.id)
+            let aircrafts: [AircraftReport] = self.bd.aircraftTodos(id_report: report.id)
             
-            mail.setCcRecipients([email.EMAIL])
+            mail.setToRecipients([email.EMAIL])
             mail.setSubject(email.titleNormalEmail(report: report))
-            mail.setMessageBody("test", isHTML: false)
             
-            //let imageData: NSData = // UIImagePNGRepresentation(image)!
-            // mail.addAttachmentData(imageData, mimeType: "image/png", fileName: "imageName")
+            var emailText: String = ""
+            emailText += email.basic(report: report, cantImg: 0)
+            if !report.passengers_photo.isEmpty {
+                let imageData = defaults.data(forKey: report.passengers_photo)!
+                mail.addAttachmentData(imageData, mimeType: "image/png", fileName: report.passengers_photo)
+            }
             
+            if !expenses.isEmpty {
+                emailText += email.expense(expenses: expenses, cantImg: 0)
+                for expense in expenses {
+                    if !expense.photo.isEmpty {
+                        let imageData = defaults.data(forKey: expense.photo)!
+                        mail.addAttachmentData(imageData, mimeType: "image/png", fileName: expense.photo)
+                    }
+                }
+            }
+            if !aircrafts.isEmpty {
+                emailText += email.aircraft(aircrafts: aircrafts, report: report, cantImg: 0)
+                for aircraf in aircrafts {
+                    if !aircraf.photo.isEmpty {
+                        let imageData = defaults.data(forKey: aircraf.photo)!
+                        mail.addAttachmentData(imageData, mimeType: "image/png", fileName: aircraf.photo)
+                    }
+                }
+            }
+            emailText += "\n REMARKS: \(email.validateStringNull(s: report.remarks)) \n"
+            
+            if !(aircrafts.isEmpty)
+                || report.engine1 != 0.0
+                || report.engine2 != 0.0 {
+                self.haveAircraftReport = true;
+            }
+            mail.setMessageBody(emailText, isHTML: false)
+           
             self.present(mail, animated: true, completion: nil)
         } else {
              self.view.makeToast("Can not send mails", duration: 3.0, position: .bottom)
@@ -88,20 +157,14 @@ class ViewControllerRemarks: UIViewController, MFMailComposeViewControllerDelega
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
-    }
-    
-    // https://stackoverflow.com/questions/37574689/how-to-load-image-from-local-path-ios-swift-by-path
-    private func load(fileName: String) -> UIImage? {
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-        let photoURL          = NSURL(fileURLWithPath: documentDirectory)
-        let fileURL = photoURL.appendingPathComponent(fileName)
-        do {
-            let imageData = try Data(contentsOf: fileURL!)
-            return UIImage(data: imageData)
-        } catch {
-            print("Error loading image : \(error)")
+        
+        if haveAircraftReport {
+            self.sendAircrafReport(report: self.aircraftReport)
+        } else {
+            self.aircraftReport.send = true
+            self.bd.reportUpdate(report: self.aircraftReport, atributo: "send")
+            _ = navigationController?.popViewController(animated: true)
         }
-        return nil
     }
     
 }

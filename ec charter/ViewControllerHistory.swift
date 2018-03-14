@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class ViewControllerHistory: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -22,7 +23,15 @@ class ViewControllerHistory: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         self.title = "History Report"
 
-        self.listado = self.bd.reportTodos()
+        self.listado = self.bd.reportTodos().reversed()
+        if(self.listado.count == 0) {
+            self.view.makeToast("Empty History", duration: 3.0, position: .bottom)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.listado = self.bd.reportTodos().reversed()
+        DispatchQueue.main.async { self.tabla.reloadData() }
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,11 +75,25 @@ class ViewControllerHistory: UIViewController, UITableViewDelegate, UITableViewD
         if (editingStyle == .delete) {
             let item = self.listado[indexPath.row]
             
+            let expenses: [Expenses] = self.bd.expensestTodos(id_report: item.id)
+            for expense in expenses {
+                self.bd.expensesDelete(expense: expense)
+            }
+            
+            let aircrafts: [AircraftReport] = self.bd.aircraftTodos(id_report: item.id)
+            for aircraf in aircrafts {
+                self.bd.aircraftDelete(aircraft: aircraf)
+            }
+            
             self.bd.borrarListado(id: item.id, table: bdc.TABLE_REPORT)
-            self.listado = self.bd.reportTodos()
+            self.listado = self.bd.reportTodos().reversed()
             
             DispatchQueue.main.async { self.tabla.reloadData() }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 176
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		39620EE52882CAA501632B22 /* Pods_ec_charterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F5DEB46C5840AE5852B3D9 /* Pods_ec_charterTests.framework */; };
 		BE4D59064527246F82021151 /* Pods_ec_charterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2771848AF4DE293BA7E5339C /* Pods_ec_charterUITests.framework */; };
-		E0AD5D2168A21F5DE8940C66 /* Pods_ec_charter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E9C48E468D1BE501CBAF98 /* Pods_ec_charter.framework */; };
 		F00358DB2027772B00C900BA /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00358DA2027772B00C900BA /* Token.swift */; };
 		F00358DF20279BA100C900BA /* ViewControllerInicio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00358DE20279BA100C900BA /* ViewControllerInicio.swift */; };
 		F00358E220279EA000C900BA /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00358E120279EA000C900BA /* Report.swift */; };
@@ -31,7 +30,7 @@
 		F039A49F2049893600A3D821 /* ViewControllerExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F039A49E2049893600A3D821 /* ViewControllerExpenses.swift */; };
 		F039A4A32049899800A3D821 /* ViewControllerReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = F039A4A22049899700A3D821 /* ViewControllerReports.swift */; };
 		F039FE352030AD920091790C /* ViewControllerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F039FE342030AD920091790C /* ViewControllerHistory.swift */; };
-		F039FE38203112E80091790C /* UIDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F039FE39203112E80091790C /* UIDropDown.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F03C30282053433500F9665F /* ProtocolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03C30272053433500F9665F /* ProtocolCell.swift */; };
 		F05F3F6B202FBC4400FA7CE0 /* Hora.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F3F6A202FBC4400FA7CE0 /* Hora.swift */; };
 		F06AE5A9202605610009DEF8 /* CardHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06AE5A8202605610009DEF8 /* CardHistory.swift */; };
 		F06AE5AB20260AD70009DEF8 /* CardSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06AE5AA20260AD70009DEF8 /* CardSettings.swift */; };
@@ -51,6 +50,8 @@
 		F0F4AD242049B35700EDA486 /* ReportCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4AD232049B35700EDA486 /* ReportCombo.swift */; };
 		F0F4AD262049B58E00EDA486 /* ReportComboCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4AD252049B58E00EDA486 /* ReportComboCell.swift */; };
 		F0F4AD282049BE0900EDA486 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4AD272049BE0900EDA486 /* Protocol.swift */; };
+		F0F65E0220548DAD00CF2705 /* Pods_ec_charter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0F65E0320548DAD00CF2705 /* Pods_ec_charter.framework */; };
+		F0F9E2EA2051D49200D60070 /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F9E2E92051D49200D60070 /* ImagePreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		F039FE342030AD920091790C /* ViewControllerHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHistory.swift; sourceTree = "<group>"; };
 		F039FE372030F0AB0091790C /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F039FE39203112E80091790C /* UIDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F03C30272053433500F9665F /* ProtocolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolCell.swift; sourceTree = "<group>"; };
 		F05F3F6A202FBC4400FA7CE0 /* Hora.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hora.swift; sourceTree = "<group>"; };
 		F06AE5A8202605610009DEF8 /* CardHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHistory.swift; sourceTree = "<group>"; };
 		F06AE5AA20260AD70009DEF8 /* CardSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSettings.swift; sourceTree = "<group>"; };
@@ -128,6 +130,8 @@
 		F0F4AD232049B35700EDA486 /* ReportCombo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCombo.swift; sourceTree = "<group>"; };
 		F0F4AD252049B58E00EDA486 /* ReportComboCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportComboCell.swift; sourceTree = "<group>"; };
 		F0F4AD272049BE0900EDA486 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		F0F65E0320548DAD00CF2705 /* Pods_ec_charter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ec_charter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0F9E2E92051D49200D60070 /* ImagePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,12 +139,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0F65E0220548DAD00CF2705 /* Pods_ec_charter.framework in Frameworks */,
 				F09795D0204FB4A400BBE219 /* DatePickerDialog.framework in Frameworks */,
-				F039FE38203112E80091790C /* UIDropDown.framework in Frameworks */,
 				F00358F42027ED9B00C900BA /* SQLite.framework in Frameworks */,
 				F00358ED2027BC3900C900BA /* Toast_Swift.framework in Frameworks */,
 				F00358EB2027BC2800C900BA /* CryptoSwift.framework in Frameworks */,
-				E0AD5D2168A21F5DE8940C66 /* Pods_ec_charter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +182,7 @@
 		8C21F9DF6C8938890695B954 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F0F65E0320548DAD00CF2705 /* Pods_ec_charter.framework */,
 				F09795D1204FB4A400BBE219 /* DatePickerDialog.framework */,
 				F039FE39203112E80091790C /* UIDropDown.framework */,
 				F039FE372030F0AB0091790C /* DropDown.framework */,
@@ -211,6 +215,7 @@
 				F00358E32027A30F00C900BA /* Expenses.swift */,
 				F0E5ED67202E86B900395A38 /* Lista.swift */,
 				F0F4AD272049BE0900EDA486 /* Protocol.swift */,
+				F03C30272053433500F9665F /* ProtocolCell.swift */,
 			);
 			path = modelo;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				F075FB342026AFCC0075A352 /* CardExpenses.swift */,
 				F0F4AD232049B35700EDA486 /* ReportCombo.swift */,
 				F0F4AD252049B58E00EDA486 /* ReportComboCell.swift */,
+				F0F9E2E92051D49200D60070 /* ImagePreview.swift */,
 			);
 			path = "ec charter";
 			sourceTree = "<group>";
@@ -621,10 +627,12 @@
 				F075FB332026ACFA0075A352 /* CardAircraft.swift in Sources */,
 				F0F4AD242049B35700EDA486 /* ReportCombo.swift in Sources */,
 				F07C07DA203E6A1200D94D9D /* ViewControllerSetting.swift in Sources */,
+				F03C30282053433500F9665F /* ProtocolCell.swift in Sources */,
 				F039A49F2049893600A3D821 /* ViewControllerExpenses.swift in Sources */,
 				F0F38316204EFB7D00997A76 /* ViewControllerExpense.swift in Sources */,
 				F039A4A32049899800A3D821 /* ViewControllerReports.swift in Sources */,
 				F06AE5AD20260C630009DEF8 /* CardSettingsCombo.swift in Sources */,
+				F0F9E2EA2051D49200D60070 /* ImagePreview.swift in Sources */,
 				F06AE5A9202605610009DEF8 /* CardHistory.swift in Sources */,
 				F05F3F6B202FBC4400FA7CE0 /* Hora.swift in Sources */,
 				F075FB352026AFCC0075A352 /* CardExpenses.swift in Sources */,
@@ -724,6 +732,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -740,7 +749,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -781,6 +790,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -791,7 +801,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -810,7 +820,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = flight.ec.charter.beta;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ec.charter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
@@ -829,7 +839,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = flight.ec.charter.beta;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ec.charter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
