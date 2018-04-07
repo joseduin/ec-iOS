@@ -39,6 +39,7 @@
 		F075FB352026AFCC0075A352 /* CardExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F075FB342026AFCC0075A352 /* CardExpenses.swift */; };
 		F07C07DA203E6A1200D94D9D /* ViewControllerSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07C07D9203E6A1200D94D9D /* ViewControllerSetting.swift */; };
 		F07C07DC203E78E700D94D9D /* ViewControllerComboSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07C07DB203E78E700D94D9D /* ViewControllerComboSetting.swift */; };
+		F08F8FCB206886BA004D0F7A /* UIDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F08F8FCC206886BA004D0F7A /* UIDropDown.framework */; };
 		F09795D0204FB4A400BBE219 /* DatePickerDialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F09795D1204FB4A400BBE219 /* DatePickerDialog.framework */; };
 		F0E4AB022032A55300028BF9 /* ViewControllerRemarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E4AB012032A55300028BF9 /* ViewControllerRemarks.swift */; };
 		F0E4AB042032AB4400028BF9 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E4AB032032AB4400028BF9 /* Email.swift */; };
@@ -50,7 +51,6 @@
 		F0F4AD242049B35700EDA486 /* ReportCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4AD232049B35700EDA486 /* ReportCombo.swift */; };
 		F0F4AD262049B58E00EDA486 /* ReportComboCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4AD252049B58E00EDA486 /* ReportComboCell.swift */; };
 		F0F4AD282049BE0900EDA486 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4AD272049BE0900EDA486 /* Protocol.swift */; };
-		F0F65E0220548DAD00CF2705 /* Pods_ec_charter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0F65E0320548DAD00CF2705 /* Pods_ec_charter.framework */; };
 		F0F9E2EA2051D49200D60070 /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F9E2E92051D49200D60070 /* ImagePreview.swift */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +119,7 @@
 		F075FB342026AFCC0075A352 /* CardExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExpenses.swift; sourceTree = "<group>"; };
 		F07C07D9203E6A1200D94D9D /* ViewControllerSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSetting.swift; sourceTree = "<group>"; };
 		F07C07DB203E78E700D94D9D /* ViewControllerComboSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerComboSetting.swift; sourceTree = "<group>"; };
+		F08F8FCC206886BA004D0F7A /* UIDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09795D1204FB4A400BBE219 /* DatePickerDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DatePickerDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0E4AB012032A55300028BF9 /* ViewControllerRemarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRemarks.swift; sourceTree = "<group>"; };
 		F0E4AB032032AB4400028BF9 /* Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
@@ -139,7 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0F65E0220548DAD00CF2705 /* Pods_ec_charter.framework in Frameworks */,
+				F08F8FCB206886BA004D0F7A /* UIDropDown.framework in Frameworks */,
 				F09795D0204FB4A400BBE219 /* DatePickerDialog.framework in Frameworks */,
 				F00358F42027ED9B00C900BA /* SQLite.framework in Frameworks */,
 				F00358ED2027BC3900C900BA /* Toast_Swift.framework in Frameworks */,
@@ -182,6 +183,7 @@
 		8C21F9DF6C8938890695B954 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F08F8FCC206886BA004D0F7A /* UIDropDown.framework */,
 				F0F65E0320548DAD00CF2705 /* Pods_ec_charter.framework */,
 				F09795D1204FB4A400BBE219 /* DatePickerDialog.framework */,
 				F039FE39203112E80091790C /* UIDropDown.framework */,
@@ -749,7 +751,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3.5;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -801,7 +803,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -816,15 +818,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3UCFDH4GAZ;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "ec charter/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ec.charter;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ec.charter-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -835,15 +838,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3UCFDH4GAZ;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "ec charter/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ec.charter;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ec.charter-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
